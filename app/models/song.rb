@@ -5,10 +5,8 @@ class Song < ActiveRecord::Base
 
 
     def self.find_by_slug(slug)
-        words = slug.split("-")
-        song = words.map{|word|word.capitalize}.join(" ")
-        Song.find_by(name: song)
-    end
+        Song.all.find {|song| song.slug == slug }
+    end 
 
     def slug
         self.name.downcase.gsub(" ","-")
