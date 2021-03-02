@@ -1,7 +1,7 @@
 <h1>Edit <%=@song.name%>!</h1>
 
 <form action="/songs/<%= @song.slug %>" method="POST">
-<input id="hidden" type="hidden" name="_method" value="patch">
+<input id="hidden" type="hidden" name="_method" value="PATCH">
   <label>Name:</label>
   <input id= "Name" type="text" name="song[name]">
 
@@ -10,8 +10,7 @@
 
   <h3>Genre:</h3>
   <% @genres.each do |genre| %>
-    
-    <input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>">
+    <label for="genre_name"><%=genre.name%></label><input id="<%= genre.name %>" type="checkbox" name="genres[]" value="<%= genre.id %>">
   <% end %>                                                         
   <br>
   
